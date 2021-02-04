@@ -20,6 +20,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+//Cargamos el módulo de mongoose para conectar nuestra aplicación a la base de datos
+
+require("./lib/connectMongoose");
+
 //4. Comienza a configurar esa aplicación de express
 
 // view engine setup

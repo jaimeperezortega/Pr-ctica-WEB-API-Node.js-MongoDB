@@ -28,7 +28,9 @@
 
 Permite poner distintas variables de entorno a lo largo de distintos sistema operativos. Traducirá nuestra variable de entorno al sistema operativo que estemos usando. No hay problema si usas windows, mac, linux....
 
+### npm install express-validator
 
+Para instalar la librería de validaciones express-validator
 
 
 

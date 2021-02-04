@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../app'); //Importa nuestra aplicación de express app
 var debug = require('debug')('nodepop:server');
 var http = require('http');
 

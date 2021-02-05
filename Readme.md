@@ -87,3 +87,18 @@ Es un ODM (Object Document Mapper) . Es una herramienta que nos permite persisti
 Para instalar mongoose
 
 Una vez instalado nos vamos a crear un conector a Mongoose. Creamos una carpeta que llamamos lib (como nuestra propia libreria) y dentro de lib creamos un fichero que se llamará connectMongoose.js
+
+
+## API METHODS
+
+### GET api/productos
+
+Conseguir una lista de productos
+
+### POST api/productos
+
+Para crear un nuevo producto
+
+### PUT api/productos:id(body)
+
+Para actualizar un producto ya existente

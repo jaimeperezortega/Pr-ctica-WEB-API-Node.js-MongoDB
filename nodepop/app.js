@@ -63,14 +63,26 @@ app.use(function(req, res, next) {
 
 // error handler
 app.use(function(err, req, res, next) {
+  res.status(err.status || 500);
+
+  if(isAPIrequest(req)){
+    res.json({error:err.message});
+    return;
+  }
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  
   res.render('error');
 });
+
+//nos creamos una función auxiliar para determinar si la petición que estamos recibiendo es una petición al API
+function isAPIrequest(req) {
+  return req.originalUrl.indexOf('/api/') ===0; //Te dice la posición de una subcadena de texto
+
+}
 
 //5. Una vez configurada la aplicación de express creada, la exporta para que pueda ser cargada en otro fichero. Lo importa luego de hecho el fichero www
 

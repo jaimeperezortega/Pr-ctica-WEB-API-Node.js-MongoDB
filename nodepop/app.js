@@ -40,6 +40,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Rutas del API
+ */
+
+app.use("/api/productos", require("./routes/api/productos"));
+
+
+/**
+ * Rutas de mi Website
+ */
+
 app.use('/', indexRouter); // Aquí establece que cuando alguien haga una petición a la raiz del sitio, le está diciendo a nuestra aplicación que utilice este router para ver si hay que responder o no
 app.use('/users', usersRouter);
 

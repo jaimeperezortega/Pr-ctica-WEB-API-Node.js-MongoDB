@@ -10,7 +10,8 @@ router.get('/', async function(req, res, next) {
 try{
     const name= req.query.name;
     const price = req.query.price;
-    const tag = req.query.tag;
+    const tags = req.query.tag;
+    const venta = req.query.venta;
     const limit = parseInt(req.query.limit);
     const skip = parseInt(req.query.skip);
     const fields = req.query.fields;
@@ -24,8 +25,11 @@ try{
     if(price){
         filtro.price = price;
     }
-    if(tag){
-        filtro.tag = tag;
+    if(tags){
+        filtro.tags = tags;
+    }
+    if(venta){
+        filtro.venta = venta;
     }
    
     const resultado = await Producto.lista(filtro, limit, skip, fields, sort);

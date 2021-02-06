@@ -13,7 +13,7 @@ const productoSchema = mongoose.Schema({
     price: {type: Number, index: true},
     venta: Boolean,
     photo: String,
-    tag: {type:String, index:true},
+    tags: [String],
 }, {
     collection: "anuncios"
 });

@@ -16,6 +16,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+
 //3. Crea una aplicación de express que llama app
 
 var app = express();
@@ -42,9 +43,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /**
  * Rutas del API
+ * Aquí defino la ruta donde vamos a consumir nuestra API
  */
 
-app.use("/api/productos", require("./routes/api/productos"));
+app.use("/", require("./routes/api/productos"));
 
 
 /**

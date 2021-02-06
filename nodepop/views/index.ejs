@@ -6,11 +6,13 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <h2>Tu plataforma de anuncios online de mascarillas %></h2>
-    <h3>Catálogo de mascarillas</h3>
+    
+    
 
-    <% masks.forEach(mask =>{ %>
-      <p> -  <b>Tipo:</b> <%= mask.type %> | <b>Stock</b>: <%=mask.stock%> |  <b>Protección:</b> <%=mask.protection%></p>
-    <%})%>
+    <% for(let anuncio of resultSet){%>
+      <p><%= anuncio.name %> </p>
+      <%}%>
+   
+
   </body>
 </html>

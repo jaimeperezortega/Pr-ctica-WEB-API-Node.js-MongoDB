@@ -23,10 +23,11 @@ try{
     if(price){
         filtro.price = price;
     }
-
-
+   
     const resultado = await Producto.lista(filtro, limit, skip, fields, sort);
-    res.json(resultado);
+   
+      res.render('index', {resultSet: resultado});
+      
 } catch(err){
     next(err);
 }

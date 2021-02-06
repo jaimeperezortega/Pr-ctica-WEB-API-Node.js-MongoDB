@@ -23,7 +23,7 @@ mongoose.connection.once("open", async (req, res, next) => {
         const newData = readFileSync("files/productos-prueba.json");
         const producto = JSON.parse(newData);
         //Inserts the data in the Database
-        await Producto.insertMany(producto.productos);
+        await Producto.insertMany(producto);
     } catch (error) {
         next(error);
     }

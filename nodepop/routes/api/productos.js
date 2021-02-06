@@ -4,9 +4,9 @@ var router = express.Router();
 
 const Producto = require("../../models/Producto")
 
-/* GET /api/productos. */
+/* GET /localhost:3000/api/anuncios */
 
-router.get('/', async function(req, res, next) {
+router.get('/api/anuncios', async function(req, res, next) {
 try{
     const name= req.query.name;
     const price = req.query.price;
@@ -34,7 +34,10 @@ try{
    
     const resultado = await Producto.lista(filtro, limit, skip, fields, sort);
    
-      res.render('index', {resultSet: resultado});
+    
+    
+    res.json(resultado); 
+      
     
       
 } catch(err){
@@ -42,6 +45,48 @@ try{
 }
   
 });
+
+/* GET /localhost:3000 */
+
+router.get('/', async function(req, res, next) {
+    try{
+        const name= req.query.name;
+        const price = req.query.price;
+        const tags = req.query.tag;
+        const venta = req.query.venta;
+        const limit = parseInt(req.query.limit);
+        const skip = parseInt(req.query.skip);
+        const fields = req.query.fields;
+        const sort = req.query.sort;
+        //http://localhost:3000/?sort=price Ordena por precio ascendente
+        // http://localhost:3000/?sort=-price Ordena por precio descendente
+        const filtro ={};
+        if(name){
+            filtro.name = name;
+        }
+        if(price){
+            filtro.price = price;
+        }
+        if(tags){
+            filtro.tags = tags;
+        }
+        if(venta){
+            filtro.venta = venta;
+        }
+       
+        const resultado = await Producto.lista(filtro, limit, skip, fields, sort);
+       
+        
+        res.render('index', {resultSet: resultado});
+        // res.json(resultado); 
+          
+        
+          
+    } catch(err){
+        next(err);
+    }
+      
+    });
 
 
 //GET/api/productos:id --> Nos creamos un métdo que nos va a servir para obtener un producto a partir de su ID

@@ -1,7 +1,7 @@
 
 /**
  * Este fichero de app.js es el fichero principal de nuestra aplicación. Básicamente importa una serie de librerías, establece una serie de rutas, registramos nuestros modelos, establecemos nuestros controladores
- */
+ *///
 
  //1. Primero carga una serie de librerías
 

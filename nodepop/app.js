@@ -29,7 +29,8 @@ require("./lib/connectMongoose");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views')); //__dirname en nodejs simboliza el directorio actual donde está este fichero y / views engloba las vistas
-app.set('view engine', 'ejs'); //establece que el motor de vistas es ejs
+app.set('view engine', 'html'); //establece que el motor de vistas es ejs
+app.engine("html", require("ejs").__express);
 
 // Cada uno de estos app.use son como esos jugadores de la partida de poker que deciden responder o pasar ante una petición. Empieza con el primero y le dice que si quiere hacer algo con esa petición. Si tiene programada una respuesta para esa petición, responde, si no, pasa. Todos los middleware tienen habitualmente 3 parámetros (req, res, next) salvo los middleware de error handler que también tienen el parámetro de error.
 

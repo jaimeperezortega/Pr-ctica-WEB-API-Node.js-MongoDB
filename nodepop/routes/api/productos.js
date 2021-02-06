@@ -10,12 +10,13 @@ router.get('/', async function(req, res, next) {
 try{
     const name= req.query.name;
     const price = req.query.price;
+    const tag = req.query.tag;
     const limit = parseInt(req.query.limit);
     const skip = parseInt(req.query.skip);
     const fields = req.query.fields;
     const sort = req.query.sort;
-    //http://localhost:3000/api/productos?sort=price Ordena por precio ascendente
-    // http://localhost:3000/api/productos?sort=-price Ordena por precio descendente
+    //http://localhost:3000/?sort=price Ordena por precio ascendente
+    // http://localhost:3000/?sort=-price Ordena por precio descendente
     const filtro ={};
     if(name){
         filtro.name = name;
@@ -23,10 +24,14 @@ try{
     if(price){
         filtro.price = price;
     }
+    if(tag){
+        filtro.tag = tag;
+    }
    
     const resultado = await Producto.lista(filtro, limit, skip, fields, sort);
    
       res.render('index', {resultSet: resultado});
+    
       
 } catch(err){
     next(err);

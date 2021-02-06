@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <h2> LISTADO DE ANUNCIOS
+    </h2>
+    
+
+
+      <% for(let anuncio of resultSet){%>
+        
+
+        </p><b>Modelo: </b> <%= anuncio.name %> </p> <b>Precio:</b> <%= anuncio.price %> EUROS 
+        <p></p> <b>Tags:</b> <%= anuncio.tag %>  </p>
+        <p> <img src="/images/<%=anuncio.photo%>" alt="">  <p></p>
+        <%}%>
+      
+   
+     
+
+  </body>
+</html>

@@ -78,9 +78,8 @@ router.get('/', async function(req, res, next) {
        
         
         res.render('index', {resultSet: resultado});
-        // res.json(resultado); 
-          
         
+
           
     } catch(err){
         next(err);
